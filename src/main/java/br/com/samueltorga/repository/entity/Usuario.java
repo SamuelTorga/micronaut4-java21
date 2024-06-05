@@ -1,4 +1,4 @@
-package br.com.samueltorga.entity;
+package br.com.samueltorga.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,7 +33,7 @@ public class Usuario implements Serializable {
     @Column(insertable = false, updatable = false)
     private Instant criado;
 
-    @Column
+    @Column(insertable = false, updatable = false)
     private Instant atualizado;
 
     @Column
