@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16.1
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - APP_DB_USER=app
+      - APP_DB_PASS=docker
+      - APP_DB_NAME=database
+      - TZ=UTC
+      - PGTZ=UTC
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432

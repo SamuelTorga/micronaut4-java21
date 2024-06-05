@@ -1,0 +1,17 @@
+logger:
+  levels:
+    br.com.samueltorga: TRACE
+
+endpoints:
+  all:
+    enabled: true
+    sensitive: false
+  health:
+    details-visible: ANONYMOUS
+  loggers:
+    write-sensitive: false
+
+
+DATABASE_URL: jdbc:postgresql://localhost:5432/database
+DATABASE_USERNAME: app
+DATABASE_PASSWORD: docker
