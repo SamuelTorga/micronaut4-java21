@@ -1,0 +1,17 @@
+micronaut:
+  application:
+    name: micronaut4-java21
+datasources:
+  default:
+    driver-class-name: org.postgresql.Driver
+    db-type: postgres
+    dialect: POSTGRES
+    jdbc-url: jdbc:postgresql://localhost:5432/database
+    username: app
+    password: docker
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
