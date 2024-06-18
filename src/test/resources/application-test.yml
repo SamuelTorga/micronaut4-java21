@@ -1,6 +1,14 @@
+datasources:
+  default:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: test
+    dialect: H2
+    connectionPool: datasource
 jpa:
   default:
     properties:
       hibernate:
         hbm2ddl:
-          auto: create-drop
+          auto: none

@@ -10,18 +10,21 @@
     <parent>
         <groupId>io.micronaut.platform</groupId>
         <artifactId>micronaut-parent</artifactId>
-        <version>4.4.3</version>
+        <version>4.5.0</version>
     </parent>
     <properties>
         <packaging>jar</packaging>
         <jdk.version>21</jdk.version>
         <release.version>21</release.version>
-        <micronaut.version>4.4.3</micronaut.version>
+        <micronaut.version>4.5.0</micronaut.version>
         <micronaut.test.resources.enabled>true</micronaut.test.resources.enabled>
         <micronaut.aot.enabled>false</micronaut.aot.enabled>
         <micronaut.aot.packageName>br.com.samueltorga.aot.generated</micronaut.aot.packageName>
         <micronaut.runtime>netty</micronaut.runtime>
         <exec.mainClass>br.com.samueltorga.Application</exec.mainClass>
+        <org.postgresql.postgresql.version>42.7.3</org.postgresql.postgresql.version>
+        <org.slf4j.jul-to-slf4.version>2.0.12</org.slf4j.jul-to-slf4.version>
+        <com.h2database.h2.version>2.2.224</com.h2database.h2.version>
     </properties>
 
     <repositories>
@@ -70,13 +73,13 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jul-to-slf4j</artifactId>
-            <version>2.0.12</version>
+            <version>${org.slf4j.jul-to-slf4.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.7.3</version>
+            <version>${org.postgresql.postgresql.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -139,6 +142,12 @@
             <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${com.h2database.h2.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -147,6 +156,7 @@
                 <artifactId>micronaut-maven-plugin</artifactId>
                 <configuration>
                     <configFile>aot-${packaging}.properties</configFile>
+                    <classpathInference>false</classpathInference>
                 </configuration>
             </plugin>
             <plugin>
